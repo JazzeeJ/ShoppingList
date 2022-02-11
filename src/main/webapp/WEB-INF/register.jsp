@@ -8,10 +8,12 @@
     <body>
         <h1>Shopping List</h1>
         
-        <form>
+        <!--Sends to ShoppingList jsp in doPost method in servlet-->
+        <form action="ShoppingList" method="post">
             <label for="name">Username: </label>
             <input type="text" name="name" id="name">
-            <button type="submit">Register Name</button>
+            <button type="submit">Register name</button>
         </form>
+        
     </body>
 </html>
