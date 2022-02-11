@@ -24,8 +24,19 @@ public class ShoppingListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-//        getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
+        
+//        Get the name from the session
+        HttpSession session = request.getSession();
+        String name = (String) session.getAttribute("name");
+        
+//        If name doesn't exists, send it to the register page.
+//        If name exists, send it to the shopping list page.
+        if (name == null){
+            getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
+        }
+
     }
 
     /**
