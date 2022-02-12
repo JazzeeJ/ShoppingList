@@ -81,6 +81,22 @@ public class ShoppingListServlet extends HttpServlet {
             
 //          Push the arraylist back into the session
             session.setAttribute("items", items);
+            
+            
+//      Checks if delete form is submitted
+        } else if (action != null && action.equals("delete")) {
+            String item = request.getParameter("item");
+            
+//          Delete the item from the session
+//          Pulls arraylist
+            ArrayList<String> items = (ArrayList<String>) session.getAttribute("items");
+            
+//          Delete item from arraylist
+            items.remove(item);
+            
+//          Push the arraylist back into the session
+            session.setAttribute("items", items);
+            
         } else{
 //          Get the name from the input in register.jsp
             String name = request.getParameter("name");
