@@ -59,18 +59,9 @@ public class ShoppingListServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-                    
+            throws ServletException, IOException {                    
 //      Get the session object
-        HttpSession session = request.getSession();       
-        
-//      If name doesn't exists, send it to the register page.
-//      If name exists, send it to the shopping list page.
-        if (session.getAttribute("name") == null){
-            getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-            return;
-        }
-        
+        HttpSession session = request.getSession();                    
         
         String action = request.getParameter("action");               
                 

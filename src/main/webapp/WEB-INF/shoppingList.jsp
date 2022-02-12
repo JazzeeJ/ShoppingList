@@ -19,10 +19,14 @@
         </form>
         
         <form>
-            <p>
-                <input type="radio" name="item" value="apples">
-                apples
-            </p>     
+            <c:forEach items="${items}" var="item">
+                <p>
+                    <input type="radio" name="item" value="${item}">
+                    ${item}
+                </p>   
+                
+            </c:forEach>
+              
             <button type="submit">Delete</button>
         </form>
     </body>
