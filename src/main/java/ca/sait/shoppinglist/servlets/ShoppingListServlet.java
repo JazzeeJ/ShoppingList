@@ -29,6 +29,16 @@ public class ShoppingListServlet extends HttpServlet {
 //        Get the name from the session
         HttpSession session = request.getSession();
         String name = (String) session.getAttribute("name");
+//      Logout feature
+        String query = request.getQueryString();              
+        if (query != null && query.contains("logout")){
+            session.invalidate();    
+            getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);            
+        } else {  
+            response.sendRedirect("ShoppingList");
+            return;
+        } 
+
         
 //        If name doesn't exists, send it to the register page.
 //        If name exists, send it to the shopping list page.
@@ -36,8 +46,11 @@ public class ShoppingListServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         } else {
             getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
-        }
+        } 
+        
 
+
+              
     }
 
     
