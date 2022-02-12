@@ -53,13 +53,9 @@ public class ShoppingListServlet extends HttpServlet {
               
     }
 
-    
-    
-    
-    
-    
-    
-    
+          
+        
+       
     
     
     /**
